@@ -92,7 +92,13 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 // the starting line is only enough for 25 runners at a time so, the director decided that runners with even number ID's will start the race first! We need to filter out the array with the last names of all even numbered runners so we know who will start the FUN RUN!
+
 // Problem 2
 //Runners from that belong to the companies' Wordtune and Zoomcast are VIP runners! Uppercase their first name to let the director know that they are VIP guests.
 // Problem 3
 //Runners who donated 100 above are given a free sling bag. Reduce the array to the runners who had donated 100 or more.
+const donatedAbove = runners.filter((runner) => {
+  return runner.donation >= 100;
+});
+
+console.log(donatedAbove);
