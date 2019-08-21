@@ -91,10 +91,17 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
-// the starting line is only enough for 25 runners at a time so, the director decided that runners with even number ID's will start the race first! We need to filter out the array with the last names of all even numbered runners so we know who will start the FUN RUN!
-
+// There is a bad weather forecast and the FUN RUN maybe cancelled! Use a forEach to get all the email pushed into a new array to make contacting the runners convenient
+let email = [];
+runners.forEach(runner => {
+  email.push(`In case of emergency cancellation of the fun run contact ${runner.email}`)
+});
 // Problem 2
-//Runners from that belong to the companies' Wordtune and Zoomcast are VIP runners! Uppercase their first name to let the director know that they are VIP guests.
+//The director decided to split all the donations in half to also give way for animal adoption clinics and he wants to log them each because he wants to add them all by himself FOR SOME REASON!
+let donationSplit = runners.map(runner => {
+  return runner.donation / 2;
+}) 
+console.log(donationSplit);
 // Problem 3
 //Runners who donated 100 above are given a free sling bag. Reduce the array to the runners who had donated 100 or more.
 const donatedAbove = runners.filter((runner) => {

@@ -3,8 +3,20 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+function helloWorld(speak){
+  const introduction = speak;
+  const name ='Mike';
+  const location = 'New York City'
+  console.log(`${introduction}, My name is ${name} and I am from ${location}`);
 
+  function goodByeWorld() {
+  const goodbye = "Goodbye";
+  console.log(`${introduction} but I have to go, ${goodbye}`);
+  }
 
+  goodByeWorld();
+}
+console.log(helloWorld('HELLO WORLD!'));
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
