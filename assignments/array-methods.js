@@ -58,28 +58,54 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+runners.forEach(runner=>{
+  fullNames.push(`${runner.first_name} ${runner.last_name}`);
+});
 console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
+  runners.map((runner, index) => {
+    firstNamesAllCaps[index] = runner.first_name.toUpperCase();
+  })
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
+runnersLargeSizeShirt = runners.filter(runner => runner.shirt_size === 'L')
 console.log(runnersLargeSizeShirt);
+
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
 let ticketPriceTotal = 0;
+ticketPriceTotal = runners.reduce((totalValue, runner) => {
+  return totalValue + runner.donation;
+}, 0);
 console.log(ticketPriceTotal);
+
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
-
+// There is a bad weather forecast and the FUN RUN maybe cancelled! Use a forEach to get all the email pushed into a new array to make contacting the runners convenient
+let email = [];
+runners.forEach(runner => {
+  email.push(`In case of emergency cancellation of the fun run contact ${runner.email}`)
+});
 // Problem 2
-
+//The director decided to split all the donations in half to also give way for animal adoption clinics and he wants to log them each because he wants to add them all by himself FOR SOME REASON!
+let donationSplit = runners.map(runner => {
+  return runner.donation / 2;
+}) 
+console.log(donationSplit);
 // Problem 3
+//Runners who donated 100 above are given a free sling bag. Reduce the array to the runners who had donated 100 or more.
+const donatedAbove = runners.filter((runner) => {
+  return runner.donation >= 100;
+});
+
+console.log(donatedAbove);
